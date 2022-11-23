@@ -1,0 +1,25 @@
+<div class="container">
+    <div [ngStyle]="{
+        'backgroundColor' : bgColor,
+        'color' : txtColor,
+        'fontSize' : fSize,
+        'fontFamily' : font
+    }">Formation en Angular avec PLB</div>
+
+    <br>
+    <label for="">backgroundColor</label>
+    <input [(ngModel)]="bgColor" type="text" class="form-control">
+
+    <label for="">Text Color</label>
+    <input [(ngModel)]="txtColor" type="text" class="form-control">
+
+    <label for="">Font Size</label>
+    <!-- <input [(ngModel)]="fSize" type="number" class="form-control"> -->
+    <input #sz (keyup)="changeSize(sz.value)" type="number" class="form-control">
+
+    <label for="">Font Family</label>
+    <select class="form-control" [(ngModel)]="font">
+        <option *ngFor="let f of listFonts" [value]="f"> {{ f }} </option>
+
+    </select>
+</div>

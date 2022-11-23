@@ -9,6 +9,9 @@ import { CvComponent } from './cv/cv.component';
 import { ListeComponent } from './liste/liste.component';
 import { ItemComponent } from './item/item.component';
 import { DetailsComponent } from './details/details.component';
+import { DirectComponent } from './direct/direct.component';
+import { MsWordComponent } from './ms-word/ms-word.component';
+import { ManageServersComponent } from './manage-servers/manage-servers.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,10 @@ import { DetailsComponent } from './details/details.component';
     CvComponent,
     ListeComponent,
     ItemComponent,
-    DetailsComponent
+    DetailsComponent,
+    DirectComponent,
+    MsWordComponent,
+    ManageServersComponent
   ],
   imports: [
     BrowserModule,
