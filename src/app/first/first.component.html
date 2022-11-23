@@ -1,0 +1,15 @@
+<h2> Je m'appelle {{ nom }} </h2>
+
+<input [(ngModel)]="nom" type="text" class="form-control">
+
+<div [hidden]="hd" [style.backgroundColor]="color">Formation Angular chez PLB</div>
+
+<button (click)="traitementDuBouton()" class="btn btn-danger">Show DIV</button>
+
+<input #inputValue type="text" class="form-control" value="formation">
+
+<button (click)="sendInput(inputValue)" class="btn btn-primary">send input</button>
+
+<!-- {{ inputValue.value }} -->
+
+<app-second (msgToParent)="traitementDuParent($event)" [age]="10" [cl]="color"></app-second>
