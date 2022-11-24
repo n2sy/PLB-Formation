@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { Candidat } from '../models/candidat';
+import { ListRecruesService } from '../services/list-recrues.service';
 
 @Component({
   selector: 'app-details',
@@ -8,4 +9,10 @@ import { Candidat } from '../models/candidat';
 })
 export class DetailsComponent {
   @Input() candidatClicked: Candidat;
+
+  constructor(private recueSer: ListRecruesService) {}
+
+  RecruterHandler() {
+    this.recueSer.addNewRecrues(this.candidatClicked);
+  }
 }
