@@ -21,6 +21,12 @@ import { FirstService } from './services/first.service';
 import { RecruterComponent } from './recruter/recruter.component';
 import { AccueilComponent } from './accueil/accueil.component';
 import { PLB_ROUTING } from './app.routing';
+import { NavbarComponent } from './navbar/navbar.component';
+import { InfosComponent } from './infos/infos.component';
+import { ExpObsComponent } from './exp-obs/exp-obs.component';
+import { NotFoundComponent } from './not-found/not-found.component';
+import { AddComponent } from './add/add.component';
+import { UpdateComponent } from './update/update.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +47,12 @@ import { PLB_ROUTING } from './app.routing';
     FilterPipe,
     RecruterComponent,
     AccueilComponent,
+    NavbarComponent,
+    InfosComponent,
+    ExpObsComponent,
+    NotFoundComponent,
+    AddComponent,
+    UpdateComponent,
   ],
   imports: [BrowserModule, FormsModule, PLB_ROUTING],
 
