@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="col-md-8">
+        <app-add-account (sendToHome)="recupNewAccount($event)"></app-add-account>
+
+        <div class="plb" *ngFor="let acc of listAccounts">
+            <h3> {{ acc.nom }} </h3>
+            <hr>
+            <p>
+                This account is {{ acc.statut }}
+            </p>
+
+            <br>
+            <button (click)="changeStatut(acc, 'active')" class="btn btn-success">Set to 'active'</button>
+            <button (click)="changeStatut(acc, 'inactive')" class="btn btn-danger">Set to 'inactive'</button>
+            <button (click)="changeStatut(acc, 'unknown')" class="btn btn-info">Set to 'unknown'</button>
+
+        </div>
+
+    </div>
+</div>

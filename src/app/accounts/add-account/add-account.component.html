@@ -1,0 +1,13 @@
+<div>
+    <label for="">Account Name : </label>
+    <input #accName type="text" class="form-control" value="PLB">
+
+    <label for="">Account Statut</label>
+    <select #accStatut class="form-control" name="" id="">
+        <option value=""></option>
+        <option value="active">Active</option>
+        <option value="inactive">Inactive</option>
+        <option value="unknown">Unknown</option>
+    </select>
+    <button (click)="sendNewAccount(accName.value, accStatut.value)" class="btn btn-primary">Add Account</button>
+</div>

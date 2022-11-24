@@ -12,6 +12,12 @@ import { DetailsComponent } from './details/details.component';
 import { DirectComponent } from './direct/direct.component';
 import { MsWordComponent } from './ms-word/ms-word.component';
 import { ManageServersComponent } from './manage-servers/manage-servers.component';
+import { AddAccountComponent } from './accounts/add-account/add-account.component';
+import { HomeAccountComponent } from './accounts/home-account/home-account.component';
+import { CustomDirDirective } from './custom-dir.directive';
+import { ShortPipe } from './short.pipe';
+import { FilterPipe } from './filter.pipe';
+import { FirstService } from './services/first.service';
 
 @NgModule({
   declarations: [
@@ -24,13 +30,16 @@ import { ManageServersComponent } from './manage-servers/manage-servers.componen
     DetailsComponent,
     DirectComponent,
     MsWordComponent,
-    ManageServersComponent
+    ManageServersComponent,
+    AddAccountComponent,
+    HomeAccountComponent,
+    CustomDirDirective,
+    ShortPipe,
+    FilterPipe,
   ],
-  imports: [
-    BrowserModule,
-    FormsModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+  imports: [BrowserModule, FormsModule],
+  providers: [FirstService],
+  // providers: [],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

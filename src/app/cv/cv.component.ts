@@ -1,28 +1,39 @@
 import { Component, OnInit } from '@angular/core';
 import { Candidat } from '../models/candidat';
+import { FirstService } from '../services/first.service';
+import { ListCandidatsService } from '../services/list-candidats.service';
 
 @Component({
   selector: 'app-cv',
   templateUrl: './cv.component.html',
   styleUrls: ['./cv.component.css'],
+  providers: [],
 })
 export class CvComponent implements OnInit {
   //societe = 'PLB';
-  constructor() {}
+  TabCandidats: Candidat[] = [];
+
+  clickedCandidat: Candidat;
+  constructor(
+    private firstSer: FirstService,
+    private candSer: ListCandidatsService
+  ) {}
 
   ngOnInit(): void {
     // this.societe = 'PLB';
+    this.firstSer.showInfos();
+    this.TabCandidats = this.candSer.getAllCandidats();
   }
-
-  TabCandidats: Candidat[] = [
-    new Candidat(1, 'bart', 'simpson', 12, 'Ingénieur', 'bart.jpeg'),
-    new Candidat(2, 'homer', 'simpson', 44, 'Directeur', 'homer.jpg'),
-    new Candidat(3, 'marge', 'simpson', 33, 'Chef de projet', 'marge.jpeg'),
-  ];
-
-  clickedCandidat: Candidat;
 
   recupCandidat(cand) {
     this.clickedCandidat = cand;
+  }
+
+  addCandidat() {
+    this.candSer.addNewCandidat();
+  }
+
+  showCands() {
+    console.log(this.candSer.getAllCandidats());
   }
 }
