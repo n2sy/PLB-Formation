@@ -27,6 +27,8 @@ import { ExpObsComponent } from './exp-obs/exp-obs.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { AddComponent } from './add/add.component';
 import { UpdateComponent } from './update/update.component';
+import { SubModule } from './sub/sub.module';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -53,8 +55,9 @@ import { UpdateComponent } from './update/update.component';
     NotFoundComponent,
     AddComponent,
     UpdateComponent,
+    LoginComponent,
   ],
-  imports: [BrowserModule, FormsModule, PLB_ROUTING],
+  imports: [BrowserModule, FormsModule, PLB_ROUTING, SubModule],
 
   providers: [FirstService],
   // providers: [],

@@ -1,0 +1,6 @@
+<div>
+    <h3> {{ selectedServer.nom }} </h3>
+    <p>Le statut du serveur est {{ selectedServer.statut }} </p>
+    <button (click)="goToEdit()" [disabled]="showEditBtn" class="btn btn-info">Editer</button><br>
+    <i *ngIf="showEditBtn">Impossible d'editer ce serveur</i>
+</div>

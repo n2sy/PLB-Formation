@@ -16,6 +16,10 @@ export class ListCandidatsService {
     return this.allCandidates;
   }
 
+  getCandidatById(id) {
+    return this.allCandidates.find((c) => c.id == id);
+  }
+
   addNewCandidat() {
     this.allCandidates.push(
       new Candidat(2, 'NEW', 'CANDIDAT', 44, 'Directeur', 'homer.jpg')
