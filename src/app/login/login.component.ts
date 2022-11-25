@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
 @Component({
@@ -6,11 +7,26 @@ import { NgForm } from '@angular/forms';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
 })
-export class LoginComponent {
+export class LoginComponent implements OnInit {
   defaultLangage = 'java';
   myComment = "Rien à signaler pour l'instant...";
   onSubmit(f: NgForm) {
     console.log(f);
+  }
+
+  constructor(private http: HttpClient) {}
+  ngOnInit(): void {
+    // this.http.get('https://jsonplaceholder.typicode.com/uuusers').subscribe({
+    //   next: (response) => {
+    //     console.log(response);
+    //   },
+    //   error: (err) => {
+    //     console.log(err);
+    //   },
+    //   complete: () => {
+    //     console.log('Flux terminé');
+    //   },
+    // });
   }
 
   genererPwd(f: NgForm) {

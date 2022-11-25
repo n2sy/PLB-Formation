@@ -1,7 +1,7 @@
 <div class="container">
     <div class="row">
         <div class="col-md-5">
-            <app-liste (sendCandToCv)="recupCandidat($event)"></app-liste>
+            <app-liste (sendCandToCv)="recupCandidat($event)" [listeCandidats]="TabCandidats"></app-liste>
         </div>
         <div class="col-md-7">
             <app-details *ngIf="clickedCandidat" [candidatClicked]="clickedCandidat"></app-details>

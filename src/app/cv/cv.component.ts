@@ -12,7 +12,7 @@ import { ListServerService } from '../sub/list-server.service';
 })
 export class CvComponent implements OnInit {
   //societe = 'PLB';
-  TabCandidats: Candidat[] = [];
+  TabCandidats;
 
   clickedCandidat: Candidat;
   constructor(
@@ -23,18 +23,25 @@ export class CvComponent implements OnInit {
 
   ngOnInit(): void {
     // this.societe = 'PLB';
-    this.firstSer.showInfos();
-    this.TabCandidats = this.candSer.getAllCandidats();
-    console.log(this.serSer.getAllServers());
+    // this.firstSer.showInfos();
+    // this.TabCandidats = this.candSer.getAllCandidats();
+    //console.log(this.serSer.getAllServers());
+    this.candSer.getAllCandidatsAPI().subscribe({
+      next: (response) => {
+        this.TabCandidats = response;
+        console.log(this.TabCandidats);
+      },
+    });
+    console.log('Soufiane');
   }
 
   recupCandidat(cand) {
     this.clickedCandidat = cand;
   }
 
-  addCandidat() {
-    this.candSer.addNewCandidat();
-  }
+  // addCandidat() {
+  //   this.candSer.addNewCandidat();
+  // }
 
   showCands() {
     console.log(this.candSer.getAllCandidats());

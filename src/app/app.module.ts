@@ -29,6 +29,7 @@ import { AddComponent } from './add/add.component';
 import { UpdateComponent } from './update/update.component';
 import { SubModule } from './sub/sub.module';
 import { LoginComponent } from './login/login.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -57,7 +58,13 @@ import { LoginComponent } from './login/login.component';
     UpdateComponent,
     LoginComponent,
   ],
-  imports: [BrowserModule, FormsModule, PLB_ROUTING, SubModule],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    PLB_ROUTING,
+    SubModule,
+    HttpClientModule,
+  ],
 
   providers: [FirstService],
   // providers: [],

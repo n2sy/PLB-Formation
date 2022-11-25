@@ -1,1 +1,22 @@
-<h2>Formulaire pour l'ajout d'un candidat</h2>
+<div class="container">
+    <form #formAdd="ngForm">
+        <label for="nom">Nom</label>
+        <input required ngModel type="text" class="form-control" id="nom" name="nom">
+
+        <label for="prenom">Prénom</label>
+        <input required ngModel type="text" class="form-control" id="prenom" name="prenom">
+
+        <label for="age">Age</label>
+        <input ngModel type="number" class="form-control" id="age" name="age">
+
+        <label for="profession">Profession</label>
+        <input ngModel type="text" class="form-control" id="profession" name="profession">
+
+        <label for="path">Url de l'avatar</label>
+        <input ngModel type="text" class="form-control" id="path" name="avatar">
+
+        <button (click)="onAjouter(formAdd.value)" class="btn btn-primary">
+            Ajouter Candidat
+        </button>
+    </form>
+</div>

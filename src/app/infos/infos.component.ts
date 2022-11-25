@@ -18,6 +18,7 @@ export class InfosComponent implements OnInit {
     private router: Router,
     private CandSer: ListCandidatsService
   ) {}
+
   ngOnInit(): void {
     // V1 avec snapchot
     // this.myId = this.activatedRoute.snapshot.params['id'];
@@ -34,10 +35,31 @@ export class InfosComponent implements OnInit {
     //avec ParamMap
     this.activatedRoute.paramMap.subscribe({
       next: (p: ParamMap) => {
-        this.selCandidat = this.CandSer.getCandidatById(p.get('id'));
+        this.CandSer.getCandidatByIdAPI(p.get('id')).subscribe({
+          next: (response) => {
+            this.selCandidat = response;
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
         //this.router.navigateByUrl("..");
         // this.location.back();
       },
     });
+  }
+
+  onDelete() {
+    if (confirm('Etes-vous sur de vouloir supprimer ce candidat ?')) {
+      this.CandSer.deleteCandidatAPI(this.selCandidat._id).subscribe({
+        next: (response) => {
+          alert('Le candidat a été bien supprimé');
+          this.router.navigateByUrl('/cv');
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+    }
   }
 }

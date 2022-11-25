@@ -9,7 +9,7 @@
         <label for="pwd">Mot de passe</label>
         <input ngModel type="text" class="form-control" id="pwd" name="password">
 
-        <div ngModelGroup="preferences" #pref="ngModelGroup">
+        <!-- <div ngModelGroup="preferences" #pref="ngModelGroup">
             <label for="langage">Langage préféré</label>
             <select [ngModel]="defaultLangage" name="langage" id="langage" class="form-control">
                 <option value=""></option>
@@ -36,20 +36,20 @@
             <p *ngIf="exp.errors?.['required']">Ce champ est obligatoire</p>
             <p *ngIf="exp.errors?.['minlength']">Le nombre de caractères minimal est égal à 6</p>
             <p *ngIf="exp.errors?.['pattern']">Le pattern est "nidhal"</p>
-        </div>
+        </div> -->
 
         <button [disabled]="f.invalid" class="btn btn-primary" type="submit">Valider</button>
-        <button (click)="genererPwd(f)" class="btn btn-danger">Generer Password</button>
+        <!-- <button (click)="genererPwd(f)" class="btn btn-danger">Generer Password</button>
         <button (click)="genererPwdII(f)" class="btn btn-info">Generer Password II</button>
-        <button (click)="onReset(f)" class="btn btn-success">Reset</button>
+        <button (click)="onReset(f)" class="btn btn-success">Reset</button> -->
     </form>
 
-    <pre>
+    <!-- <pre>
         {{
         f.value | json
         }}
 
-    </pre>
+    </pre> -->
 
 
 

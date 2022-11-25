@@ -6,15 +6,14 @@ import { ListCandidatsService } from '../services/list-candidats.service';
   selector: 'app-liste',
   templateUrl: './liste.component.html',
   styleUrls: ['./liste.component.css'],
-  providers: [ListCandidatsService],
 })
 export class ListeComponent implements OnInit {
-  listeCandidats: Candidat[] = [];
+  @Input() listeCandidats: Candidat[] = [];
   @Output() sendCandToCv = new EventEmitter();
 
   constructor(private candSer: ListCandidatsService) {}
   ngOnInit(): void {
-    this.listeCandidats = this.candSer.getAllCandidats();
+    //this.listeCandidats = this.candSer.getAllCandidats();
   }
 
   sendToCv(cand) {
