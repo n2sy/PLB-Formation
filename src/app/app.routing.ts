@@ -11,6 +11,7 @@ import { UpdateComponent } from './update/update.component';
 import { LoginComponent } from './login/login.component';
 import { LoginGuard } from './login.guard';
 import { LogoutGuard } from './logout.guard';
+import { ExitLoginGuard } from './exit-login.guard';
 
 const myRoutes: Routes = [
   { path: '', component: AccueilComponent },
@@ -25,7 +26,12 @@ const myRoutes: Routes = [
     ],
   },
   { path: 'ms-word', component: MsWordComponent },
-  { path: 'login', component: LoginComponent, canActivate: [LogoutGuard] },
+  {
+    path: 'login',
+    component: LoginComponent,
+    canActivate: [LogoutGuard],
+    canDeactivate: [ExitLoginGuard],
+  },
   { path: 'manage-servers', component: ManageServersComponent },
   { path: 'not-found', component: NotFoundComponent },
   { path: '**', redirectTo: 'not-found' },
