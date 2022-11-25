@@ -30,6 +30,7 @@ import { UpdateComponent } from './update/update.component';
 import { SubModule } from './sub/sub.module';
 import { LoginComponent } from './login/login.component';
 import { HttpClientModule } from '@angular/common/http';
+import { tokenInterceptorProvider } from './token.interceptor';
 
 @NgModule({
   declarations: [
@@ -66,7 +67,7 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule,
   ],
 
-  providers: [FirstService],
+  providers: [FirstService, tokenInterceptorProvider],
   // providers: [],
   bootstrap: [AppComponent],
 })

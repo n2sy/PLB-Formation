@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Candidat } from '../models/candidat';
 
@@ -33,6 +33,11 @@ export class ListCandidatsService {
     this.allCandidates.push(newCand);
   }
   addCandidatAPI(newCand) {
+    // let myToken = localStorage.getItem('token');
+    // if (myToken) {
+    //   let h = new HttpHeaders().set('Authorization', 'bearer ' + myToken);
+    //   return this.http.post(this.link, newCand, { headers: h });
+    // }
     return this.http.post(this.link, newCand);
   }
 

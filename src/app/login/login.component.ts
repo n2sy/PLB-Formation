@@ -1,6 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -10,11 +12,23 @@ import { NgForm } from '@angular/forms';
 export class LoginComponent implements OnInit {
   defaultLangage = 'java';
   myComment = "Rien à signaler pour l'instant...";
-  onSubmit(f: NgForm) {
-    console.log(f);
+  notAllowed = false;
+  onSubmit(f) {
+    // console.log(f);
+    this.authSer.seConnecter(f.value).subscribe({
+      next: (response) => {
+        console.log(response);
+        localStorage.setItem('token', response['token']);
+        this.router.navigateByUrl('/cv');
+      },
+      error: (err) => {
+        this.notAllowed = true;
+        f.reset();
+      },
+    });
   }
 
-  constructor(private http: HttpClient) {}
+  constructor(private authSer: AuthService, private router: Router) {}
   ngOnInit(): void {
     // this.http.get('https://jsonplaceholder.typicode.com/uuusers').subscribe({
     //   next: (response) => {

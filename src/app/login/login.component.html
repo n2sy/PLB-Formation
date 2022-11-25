@@ -1,7 +1,9 @@
 <div class="container">
-    <form #f="ngForm" (ngSubmit)="onSubmit(f.value)">
+    <div *ngIf="notAllowed" class="alert alert-danger">Login et/ou Mot de passe invalide
+    </div>
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
         <label for="name">Login</label>
-        <input #login="ngModel" ngModel required email type="text" class="form-control" id="name" name="login">
+        <input #login="ngModel" ngModel required email type="text" class="form-control" id="name" name="email">
         <div *ngIf="login.invalid && login.dirty" class="alert alert-danger">Ce champ est obligatoire et doit etre une
             adresse mail
         </div>
