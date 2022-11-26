@@ -6,7 +6,7 @@ import { Candidat } from '../models/candidat';
   providedIn: 'root',
 })
 export class ListCandidatsService {
-  link = 'https://candidats-api.vercel.app/cv/persons';
+  link = 'http://localhost:3000/cv/persons';
   private allCandidates = [
     // new Candidat(1, 'bart', 'simpson', 12, 'Ingénieur', 'bart.jpeg'),
     // new Candidat(2, 'homer', 'simpson', 44, 'Directeur', 'homer.jpg'),
