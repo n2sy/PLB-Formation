@@ -18,7 +18,11 @@ export class ListCandidatsService {
     return this.allCandidates;
   }
   getAllCandidatsAPI() {
-    return this.http.get(this.link);
+    let headers = new HttpHeaders().set(
+      'Access-Control-Allow-Credentials',
+      'true'
+    );
+    return this.http.get(this.link, { headers });
   }
 
   getCandidatById(id) {
