@@ -6,7 +6,7 @@ import { Candidat } from '../models/candidat';
   providedIn: 'root',
 })
 export class ListCandidatsService {
-  link = 'http://localhost:3000/cv/persons';
+  link = 'https://localhost:3000/cv/persons';
   private allCandidates = [
     // new Candidat(1, 'bart', 'simpson', 12, 'Ingénieur', 'bart.jpeg'),
     // new Candidat(2, 'homer', 'simpson', 44, 'Directeur', 'homer.jpg'),
@@ -18,10 +18,7 @@ export class ListCandidatsService {
     return this.allCandidates;
   }
   getAllCandidatsAPI() {
-    let headers = new HttpHeaders().set(
-      'Access-Control-Allow-Credentials',
-      'true'
-    );
+    let headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*');
     return this.http.get(this.link, { headers });
   }
 
